@@ -78,7 +78,7 @@ function App() {
                 if (!apiKey) return;
                 const ai = new GoogleGenAI({ apiKey });
                 const response = await ai.models.generateContent({
-                    model: 'gemini-1.5-flash',
+                    model: 'gemini-1.5-flash-latest',
                     contents: {
                         role: 'user',
                         parts: [{
@@ -179,7 +179,7 @@ Required JSON Output Format (stream ONE object per line):
         `.trim();
 
             const responseStream = await ai.models.generateContentStream({
-                model: 'gemini-1.5-flash',
+                model: 'gemini-1.5-flash-latest',
                 contents: [{ parts: [{ text: prompt }], role: 'user' }],
                 config: { temperature: 1.2 }
             });
@@ -268,7 +268,7 @@ Return ONLY a raw JSON array of 3 *NEW*, creative names for these directions (e.
         `.trim();
 
             const styleResponse = await ai.models.generateContent({
-                model: 'gemini-1.5-flash',
+                model: 'gemini-1.5-flash-latest',
                 contents: { role: 'user', parts: [{ text: stylePrompt }] }
             });
 
@@ -323,7 +323,7 @@ Return ONLY RAW HTML. No markdown fences.
           `.trim();
 
                     const responseStream = await ai.models.generateContentStream({
-                        model: 'gemini-1.5-flash',
+                        model: 'gemini-1.5-flash-latest',
                         contents: [{ parts: [{ text: prompt }], role: "user" }],
                     });
 
