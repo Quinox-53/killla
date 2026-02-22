@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
 */
 
-//Vibe coded by ammaar@google.com
+
 
 import { GoogleGenAI } from '@google/genai';
 import React, { useState, useCallback, useEffect, useRef } from 'react';
@@ -432,9 +432,7 @@ Return ONLY RAW HTML. No markdown fences.
 
   return (
     <>
-        <a href="https://x.com/ammaar" target="_blank" rel="noreferrer" className={`creator-credit ${hasStarted ? 'hide-on-mobile' : ''}`}>
-            created by @ammaar
-        </a>
+
 
         <SideDrawer 
             isOpen={drawerState.isOpen} 
