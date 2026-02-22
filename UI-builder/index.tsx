@@ -74,7 +74,7 @@ function App() {
     useEffect(() => {
         const fetchDynamicPlaceholders = async () => {
             try {
-                const apiKey = process.env.API_KEY;
+                const apiKey = process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY || process.env.API_KEY;
                 if (!apiKey) return;
                 const ai = new GoogleGenAI({ apiKey });
                 const response = await ai.models.generateContent({
@@ -151,7 +151,7 @@ function App() {
         setDrawerState({ isOpen: true, mode: 'variations', title: 'Variations', data: currentArtifact.id });
 
         try {
-            const apiKey = process.env.API_KEY;
+            const apiKey = process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY || process.env.API_KEY;
             if (!apiKey) throw new Error("API_KEY is not configured.");
             const ai = new GoogleGenAI({ apiKey });
 
@@ -247,7 +247,7 @@ Required JSON Output Format (stream ONE object per line):
         setFocusedArtifactIndex(null);
 
         try {
-            const apiKey = process.env.API_KEY;
+            const apiKey = process.env.GEMINI_API_KEY || process.env.VITE_GEMINI_API_KEY || process.env.API_KEY;
             if (!apiKey) throw new Error("API_KEY is not configured.");
             const ai = new GoogleGenAI({ apiKey });
 
